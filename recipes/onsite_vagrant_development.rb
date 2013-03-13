@@ -1,5 +1,5 @@
-node[:onsite][:ws_dir] ||= "/Users/#{WS_USER}/ws"
-node[:onsite][:vagrant_box_dir] ||= "/Users/#{WS_USER}/.vagrant.d/boxes"
+node["onsite"]["ws_dir"] ||= "/Users/#{WS_USER}/ws"
+node["onsite"]["vagrant_box_dir"] ||= "/Users/#{WS_USER}/.vagrant.d/boxes"
 
 file "/etc/hosts" do
   owner "root"
