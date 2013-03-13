@@ -4,7 +4,7 @@ vagrant_box_dir = "/Users/#{WS_USER}/.vagrant.d/boxes"
 file "/etc/hosts" do
   owner "root"
   group "wheel"
-  contents <<EOTXT
+  content <<EOTXT
 127.0.0.1	localhost
 255.255.255.255	broadcasthost
 ::1             localhost 
