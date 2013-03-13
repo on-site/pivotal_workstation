@@ -1,5 +1,5 @@
-node["onsite"]["ws_dir"] ||= "/Users/#{WS_USER}/ws"
-node["onsite"]["vagrant_box_dir"] ||= "/Users/#{WS_USER}/.vagrant.d/boxes"
+ws_dir = "/Users/#{WS_USER}/ws"
+vagrant_box_dir = "/Users/#{WS_USER}/.vagrant.d/boxes"
 
 file "/etc/hosts" do
   owner "root"
@@ -20,14 +20,14 @@ EOTXT
   action :create
 end
 
-directory "/Users/#{WS_USER}/ws" do
+directory ws_dir do
   owner WS_USER
   action :create
 end
 
 execute "Create Vagrant Box" do
   command "vagrant box add precise64 http://files.vagrantup.com/precise64.box"
-  creates "#{node[:onsite][:vagrant_box_dir]}/precise64"
+  creates "#{vagrant_box_dir}/precise64"
   user WS_USER
   action :run
 end
