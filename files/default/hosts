@@ -1,0 +1,11 @@
+127.0.0.1	localhost
+255.255.255.255	broadcasthost
+::1             localhost 
+fe80::1%lo0	localhost
+10.10.10.10 vagrant
+10.10.10.10 dev.on-site.com
+10.10.10.10 dev.rentaladdress.com
+10.10.10.10 local.on-site.com
+10.10.10.10 local.rentaladdress.com
+10.10.10.10 awesomeapts.local.rentaladdress.com
+10.10.10.10 awesomeapts.dev.rentaladdress.com

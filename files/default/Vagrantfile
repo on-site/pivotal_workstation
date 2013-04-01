@@ -1,0 +1,23 @@
+Vagrant::Config.run do |config|
+  config.vm.box = "precise64"
+  config.vm.customize ["modifyvm", :id, "--name", "OSM Vagrant"]
+  config.vm.customize ["modifyvm", :id, "--memory", "5120"]
+  config.vm.customize [
+            "storagectl", :id,
+            "--name", "SATA Controller",
+            "--hostiocache", "off" # off is better!
+          ]
+  config.vm.customize ["modifyvm", :id, "--cpus", "2" ]
+  config.vm.share_folder("v-root", "/vagrant", ".", :nfs => true)
+  # config.vm.boot_mode = :gui
+  config.vm.network :hostonly, "10.10.10.10" # IP for your guest.
+
+  config.vm.forward_port(80, 8080, :name => "http")
+  config.vm.forward_port(443, 8443, :name => "https" )
+  config.vm.forward_port(50000, 50000, :name => "db2")
+  config.vm.forward_port(3000, 3000, :name => "twilio")
+  config.vm.forward_port(3306, 3306, :name => "mysql")
+  config.vm.forward_port(5432, 5432, :name => "postgres")
+  config.vm.forward_port(6379, 6379, :name => "redis")
+  config.vm.forward_port(11211, 11211, :name => "memcached")
+end
